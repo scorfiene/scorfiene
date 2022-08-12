@@ -1,0 +1,61 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "EDL Data Set Approval API",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://[server]:7777/edl/dataset/v1"
+        }
+    ],
+    "paths": {
+        "/test": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/approve": {
+            "post": {
+                "description": "",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "input": {
+                                        "type": "array",
+                                        "properties": {
+                                            "dataSetTechnicalId": {
+                                                "type": "string",
+                                                "example": "dasdgsdgasdga"
+                                            },
+                                            "dataSetName": {
+                                                "type": "string",
+                                                "example": "Test"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    }
+}
